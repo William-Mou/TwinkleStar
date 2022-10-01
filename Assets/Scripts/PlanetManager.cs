@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,7 +7,8 @@ public class PlanetManager : MonoBehaviour
     public GameObject parent;
     public GameObject template;
     public Scrollbar scrollbar;
-    public Button button;
+    public Button pauseButton;
+    public Button screenshotButton;
 
     private int iter;
     private bool pause;
@@ -22,7 +24,8 @@ public class PlanetManager : MonoBehaviour
         GameObject planet2 = Instantiate(template, new Vector3(-25, 0, 0), Quaternion.identity, parent.transform);
         planet2.name = "Antares";
         scrollbar.onValueChanged.AddListener((float val) => ScrollbarCallback(val));
-        button.onClick.AddListener(() => buttomCallback());
+        pauseButton.onClick.AddListener(() => PauseButtonCallback());
+        screenshotButton.onClick.AddListener(() => ScreenshotButtonCallback());
     }
 
     // Update is called once per frame
@@ -45,8 +48,22 @@ public class PlanetManager : MonoBehaviour
             parent.transform.eulerAngles = new Vector3(0, 1 * iter, 0);
         }
     }
-    void buttomCallback()
+    void PauseButtonCallback()
     {
         pause = !pause;
+    }
+
+    void ScreenshotButtonCallback()
+    {
+        var fileName = EditorUtility.SaveFilePanel(
+            "Save screenshot as PNG",
+            "",
+            "screenshot.png",
+            "png");
+
+        if (fileName.Length != 0)
+        {
+            UnityEngine.ScreenCapture.CaptureScreenshot(fileName);
+        }
     }
 }
