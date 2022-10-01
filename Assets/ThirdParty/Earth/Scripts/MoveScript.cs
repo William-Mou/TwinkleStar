@@ -1,4 +1,4 @@
-/*
+﻿/*
 The MIT License(MIT)
 Copyright(c) 2016 Digital Ruby, LLC
 http://www.digitalruby.com
@@ -26,21 +26,19 @@ namespace DigitalRuby.Earth
 
         private void Update()
         {
-            /*
             float move = Input.GetAxis("Vertical");
             transform.position += (transform.forward * Speed * Time.deltaTime * move);
             move = Input.GetAxis("Horizontal");
             transform.position += (transform.right * Speed * Time.deltaTime * move);
 
-            var pitch = Input.GetAxis("Mouse X") * -150.0f * Time.deltaTime;
-            var yaw = Input.GetAxis("Mouse Y") * 150.0f * Time.deltaTime;
+            var pitch = Input.GetAxis("Mouse Y") * -150.0f * Time.deltaTime;
+            var yaw = Input.GetAxis("Mouse X") * 150.0f * Time.deltaTime;
             var roll = (Input.GetMouseButton(1) ? yaw : 0.0f);
             if (roll != 0.0f)
             {
                 yaw = 0.0f;
             }
             transform.Rotate(pitch, yaw, roll);
-            */
         }
     }
 }
