@@ -26,6 +26,7 @@ namespace DigitalRuby.Earth
 
         private void Update()
         {
+            /*
             float move = Input.GetAxis("Vertical");
             transform.position += (transform.forward * Speed * Time.deltaTime * move);
             move = Input.GetAxis("Horizontal");
@@ -39,6 +40,7 @@ namespace DigitalRuby.Earth
                 yaw = 0.0f;
             }
             transform.Rotate(pitch, yaw, roll);
+            */
         }
     }
 }
