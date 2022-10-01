@@ -14,6 +14,11 @@ public class UIController : MonoBehaviour
     public static string gender;
 
 
+    public void SwitchToCreateCharacterScene() => SceneManager.LoadScene(0, LoadSceneMode.Single);
+    public void SwitchToStartScene() => SceneManager.LoadScene(1, LoadSceneMode.Single);
+    public void SwitchToIntroScene() => SceneManager.LoadScene(2, LoadSceneMode.Single);
+    public void SwitchToInfoScene() => SceneManager.LoadScene(3, LoadSceneMode.Single);
+    public void SwitchToCreateStarScene() => SceneManager.LoadScene(4, LoadSceneMode.Single);
 
     void Start()
     {
@@ -54,7 +59,9 @@ public class UIController : MonoBehaviour
                     break;
             }
         }
+        
     }
+
     public void UsernameSelected() => InputSelected = 0;
     public void GenderSelected() => InputSelected = 1;
 }
