@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class UIController : MonoBehaviour
     public int InputSelected;
     public static string username;
     public static string gender;
+
+
+
     void Start()
     {
 
@@ -29,7 +33,7 @@ public class UIController : MonoBehaviour
             {
                 Debug.Log("username:" + username + ", gender:" + gender);
             }
-
+            SceneManager.LoadScene(1, LoadSceneMode.Single);
         }
         if (Input.GetKeyDown(KeyCode.Tab))
         {
