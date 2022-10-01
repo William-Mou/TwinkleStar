@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlanetManager : MonoBehaviour
+public class PlanetIntroManager : MonoBehaviour
 {
     public GameObject parent;
     public GameObject template;

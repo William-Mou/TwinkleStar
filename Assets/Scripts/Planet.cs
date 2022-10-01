@@ -1,17 +1,21 @@
-﻿using UnityEngine;
-
+﻿using System;
+using UnityEngine;
+[Serializable]
 public class Planet
 {
     public string name;
+    public string intro;
+    public float meanVMag;
+    public float period;
+    public float ra;
+    public float dej2000;
     public int distance;
-    public int temperature;
-    public int[] lineCurve;
+    public float BPRP;
+    public string type;
+    public string lineCurve;
+    public int[] lineCurveList;
 
-    public Planet(string name, int distance, int temperature, int[] lineCurve)
+    public Planet()
     {
-        this.name = name;
-        this.distance = distance;
-        this.temperature = temperature;
-        this.lineCurve = lineCurve;
     }
 }
