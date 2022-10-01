@@ -1,3 +1,4 @@
+using SFB;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -55,11 +56,7 @@ public class PlanetManager : MonoBehaviour
 
     void ScreenshotButtonCallback()
     {
-        var fileName = EditorUtility.SaveFilePanel(
-            "Save screenshot as PNG",
-            "",
-            "screenshot.png",
-            "png");
+        string fileName = StandaloneFileBrowser.SaveFilePanel("Save File", "", "", "");
 
         if (fileName.Length != 0)
         {
