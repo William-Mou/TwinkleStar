@@ -74,3 +74,6 @@ crashlytics-build.properties
 # for MacOS
 .DS_Store
 .vscode
+
+# for large file
+/Assets/ThirdParty/Real\ Stars\ Skybox/*
