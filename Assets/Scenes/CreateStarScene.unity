@@ -250,21 +250,6 @@ MonoBehaviour:
   BP_RP: {fileID: 1610485347}
   Ratio: {fileID: 1630779900}
   InputSelected: 0
-  new_planet:
-    name: 
-    intro: 
-    meanVMag: 0
-    Period: 0
-    ra: 0
-    dej2000: 0
-    distance: 0
-    BPRP: 0
-    type: 
-    lightCurve: 
-    lightCurveList: []
-    originColor: {r: 0, g: 0, b: 0, a: 0}
-    ratioA: 0
-    ratioB: 0
 --- !u!4 &83836216
 Transform:
   m_ObjectHideFlags: 0
@@ -766,21 +751,6 @@ MonoBehaviour:
   BP_RP: {fileID: 0}
   Ratio: {fileID: 0}
   InputSelected: 0
-  new_planet:
-    name: 
-    intro: 
-    meanVMag: 0
-    Period: 0
-    ra: 0
-    dej2000: 0
-    distance: 0
-    BPRP: 0
-    type: 
-    lightCurve: 
-    lightCurveList: []
-    originColor: {r: 0, g: 0, b: 0, a: 0}
-    ratioA: 0
-    ratioB: 0
 --- !u!4 &381678752
 Transform:
   m_ObjectHideFlags: 0
@@ -3103,7 +3073,7 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Binary Stars
+    - m_Text: Binary Star
       m_Image: {fileID: 0}
     - m_Text: Flare Star
       m_Image: {fileID: 0}
@@ -4018,7 +3988,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Binary Stars
+  m_text: Binary Star
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
