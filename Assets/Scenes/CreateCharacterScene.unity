@@ -152,6 +152,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1671906383}
   - {fileID: 856639264}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -168,9 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687fbf6bccb854165a6cdef8bb0d4653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usernameInputField: {fileID: 1280715762}
-  genderInputField: {fileID: 1409811136}
-  InputSelected: 0
 --- !u!1 &86555630
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,6 +910,7 @@ GameObject:
   - component: {fileID: 764178569}
   - component: {fileID: 764178567}
   - component: {fileID: 764178566}
+  - component: {fileID: 764178571}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -993,6 +992,15 @@ Transform:
   m_Father: {fileID: 1249182055}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0.373, y: 133.191, z: 90.667}
+--- !u!45 &764178571
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764178565}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 50e26aed28714894cb49da25901379b9, type: 2}
 --- !u!1 &856639260
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,7 +1096,7 @@ RectTransform:
   - {fileID: 1280715761}
   - {fileID: 1409811135}
   m_Father: {fileID: 8943448}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1249,8 +1257,8 @@ MonoBehaviour:
   m_OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8943449}
-        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+      - m_Target: {fileID: 1671906382}
+        m_TargetAssemblyTypeName: UICreateChar, Assembly-CSharp
         m_MethodName: UsernameSelected
         m_Mode: 1
         m_Arguments:
@@ -1572,8 +1580,8 @@ MonoBehaviour:
   m_OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8943449}
-        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+      - m_Target: {fileID: 1671906382}
+        m_TargetAssemblyTypeName: UICreateChar, Assembly-CSharp
         m_MethodName: GenderSelected
         m_Mode: 1
         m_Arguments:
@@ -1719,6 +1727,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1671906381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1671906383}
+  - component: {fileID: 1671906382}
+  m_Layer: 0
+  m_Name: UICreateCharStub
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1671906382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671906381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5cd795dd3eb1460d81cbb5b82b2efb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usernameInputField: {fileID: 1280715762}
+  genderInputField: {fileID: 1409811136}
+  InputSelected: 0
+--- !u!4 &1671906383
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671906381}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 243.80536, y: -220.3346, z: -3.5335436}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8943448}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1858015877
 GameObject:

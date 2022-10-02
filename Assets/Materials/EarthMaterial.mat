@@ -8,12 +8,11 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: EarthMaterial
-  m_Shader: {fileID: 4800000, guid: 32a0ef2a7ef59ad47846655a3c02fa8d, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords:
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ValidKeywords:
   - _EMISSION
-  - _METALLICGLOSSMAP
   - _NORMALMAP
+  m_InvalidKeywords:
   - _SPECGLOSSMAP
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -118,7 +117,9 @@ Material:
     - _DetailIntensityMin: 0.01
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _GlossMapScale: 1
     - _Glossiness: 0.5
+    - _GlossyReflections: 1
     - _InvFade: 1
     - _LightScale: 1
     - _Metallic: 0
@@ -132,6 +133,8 @@ Material:
     - _RimPower: 12.5
     - _Shininess: 0.03
     - _Smoothness: 1
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
     - _SpecularIntensity: 2
     - _SpecularPower: 64
     - _SrcBlend: 1
