@@ -23,6 +23,12 @@ public class UICreateStar : MonoBehaviour
 
     public static Planet new_planet;
 
+    string fixJson(string value)
+    {
+        value = "{\"Items\":" + value + "}";
+        return value;
+    }
+
     void Start()
     {
         new_planet = new Planet();
@@ -38,16 +44,40 @@ public class UICreateStar : MonoBehaviour
         new_planet.meanVMag = MeanVMag.value;
         new_planet.Period = Period.value;
         new_planet.BPRP = BP_RP.value;
-        new_planet.ratioA = (int) Ratio.value;
+        new_planet.ratioA = (int)Ratio.value;
         new_planet.ratioB = 9 - new_planet.ratioA;
+
         latestPlanet = new_planet.name;
         if (Input.GetKeyDown(KeyCode.Return))
         {
             if (!string.IsNullOrEmpty(new_planet.name) && !string.IsNullOrEmpty(new_planet.type))
             {
+                print(new_planet.type);
+                string jsonString;
+                string sampleLightCruve;
+                if (new_planet.type == "Binary Star")
+                {
+                    sampleLightCruve = "ASASSN-V J175417.75-295855.4";
+                }
+                if (new_planet.type == "Flare Star")
+                {
+                    sampleLightCruve = "ASASSN-V J114122.82-641014.7";
+                }
+                if (new_planet.type == "Cepheids")
+                {
+                    sampleLightCruve = "ASASSN-V J100211.71-192537.4";
+                }
+                else
+                {
+                    sampleLightCruve = "ASASSN-V J105135.18+540436.2";
+                }
+                jsonString = File.ReadAllText(Application.persistentDataPath + $"{separator}lightCurve{separator}" + sampleLightCruve + ".json");
+                System.IO.File.WriteAllText(Application.persistentDataPath + $"{separator}lightCurve{separator}" + new_planet.name + ".json", jsonString);
+
                 string planetJson = JsonUtility.ToJson(new_planet);
                 System.IO.File.WriteAllText(Application.persistentDataPath + $"{separator}star{separator}" + new_planet.name + ".json", planetJson);
                 print(Application.persistentDataPath + "star" + new_planet.name + ".json");
+
                 SwitchToIntroScene();
             }
 
