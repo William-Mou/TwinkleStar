@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17905183, g: 0.21854372, b: 0.27339143, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731078, g: 0.13414267, b: 0.12108305, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -243,11 +243,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cff7421b758e42ce9888ac0d91444be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StarNameInputField: {fileID: 0}
-  StarTypeDropdown: {fileID: 0}
-  MeanVMag: {fileID: 0}
-  Period: {fileID: 0}
-  BP_RP: {fileID: 0}
+  StarNameInputField: {fileID: 881237254}
+  StarTypeDropdown: {fileID: 1122503988}
+  MeanVMag: {fileID: 7961182051040773885}
+  Period: {fileID: 1419691092}
+  BP_RP: {fileID: 1610485347}
+  Ratio: {fileID: 1630779900}
   InputSelected: 0
   new_planet:
     name: 
@@ -262,6 +263,8 @@ MonoBehaviour:
     lightCurve: 
     lightCurveList: []
     originColor: {r: 0, g: 0, b: 0, a: 0}
+    ratioA: 0
+    ratioB: 0
 --- !u!4 &83836216
 Transform:
   m_ObjectHideFlags: 0
@@ -761,6 +764,7 @@ MonoBehaviour:
   MeanVMag: {fileID: 7961182051040773885}
   Period: {fileID: 0}
   BP_RP: {fileID: 0}
+  Ratio: {fileID: 0}
   InputSelected: 0
   new_planet:
     name: 
@@ -775,6 +779,8 @@ MonoBehaviour:
     lightCurve: 
     lightCurveList: []
     originColor: {r: 0, g: 0, b: 0, a: 0}
+    ratioA: 0
+    ratioB: 0
 --- !u!4 &381678752
 Transform:
   m_ObjectHideFlags: 0
@@ -1579,7 +1585,7 @@ MonoBehaviour:
   pauseButton: {fileID: 319845814}
   screenshotButton: {fileID: 407885512}
   ratioA: 1
-  ratioB: 4
+  ratioB: 2
 --- !u!1 &594686749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2480,8 +2486,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 3506372351
+  m_fontColor: {r: 1, g: 0.995283, b: 0.995283, a: 0.8156863}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3489,6 +3495,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385223003}
   m_CullTransparentMesh: 1
+--- !u!114 &1419691092 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7961182050437379220, guid: ac9ab31822882424aa83e11b39778dd5, type: 3}
+  m_PrefabInstance: {fileID: 451818775}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1537817434
 GameObject:
   m_ObjectHideFlags: 0
@@ -3658,6 +3675,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1562376141}
   m_CullTransparentMesh: 1
+--- !u!114 &1610485347 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7961182050437379220, guid: ac9ab31822882424aa83e11b39778dd5, type: 3}
+  m_PrefabInstance: {fileID: 1101885487}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1617837998
 GameObject:
   m_ObjectHideFlags: 0
@@ -3752,6 +3780,17 @@ Skybox:
   m_GameObject: {fileID: 1617837998}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 2100000, guid: 2d056ac30ecc9e542b26e06133f23602, type: 2}
+--- !u!114 &1630779900 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7961182050437379220, guid: ac9ab31822882424aa83e11b39778dd5, type: 3}
+  m_PrefabInstance: {fileID: 1669357129}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1669357129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3896,7 +3935,15 @@ PrefabInstance:
 '
       objectReference: {fileID: 0}
     - target: {fileID: 7961182050933945363, guid: ac9ab31822882424aa83e11b39778dd5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961182050933945363, guid: ac9ab31822882424aa83e11b39778dd5, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961182050933945363, guid: ac9ab31822882424aa83e11b39778dd5, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7961182050933945363, guid: ac9ab31822882424aa83e11b39778dd5, type: 3}

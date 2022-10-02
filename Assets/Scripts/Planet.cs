@@ -15,7 +15,8 @@ public class Planet
     public string lightCurve;
     public LightCurve[] lightCurveList;
     public Color originColor;
-
+    public int ratioA;
+    public int ratioB;
     public Planet()
     {
     }

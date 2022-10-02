@@ -55,6 +55,8 @@ public class PlanetIntroManager : MonoBehaviour
             scrollbar.value = (float)iter / 720;
             iter %= 720;
             iter++;
+            ratioA = UICreateStar.new_planet.ratioA;
+            ratioB = UICreateStar.new_planet.ratioB;
         }
         if (ratioA != preventRatioA || ratioB != preventRatioB)
         {
