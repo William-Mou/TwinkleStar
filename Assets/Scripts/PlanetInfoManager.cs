@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,18 +23,32 @@ public class PlanetInfoManager : MonoBehaviour
             new Vector3(300,75,0),
         };
 
+    string fixJson(string value)
+    {
+        value = "{\"Items\":" + value + "}";
+        return value;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         Camera cam = GetComponent<Camera>();
         IEnumerable<string> files = Directory
-            .EnumerateFiles("Assets\\Data", "*.json", SearchOption.TopDirectoryOnly);
+            .EnumerateFiles("Assets\\Data\\star", "*.json", SearchOption.TopDirectoryOnly);
 
         planets = new();
         foreach (string file in files)
         {
-            string jsonString = File.ReadAllText(file);
-            planets.Add(JsonUtility.FromJson<Planet>(jsonString));
+            string jsonString;
+            jsonString = File.ReadAllText(file);
+            print(jsonString);
+            Planet planet = JsonUtility.FromJson<Planet>(jsonString);
+            jsonString = File.ReadAllText("Assets\\Data\\lineCurve\\" + planet.name+".json");
+            print("Assets\\Data\\lineCurve\\" + planet.name + ".json");
+            print(fixJson(jsonString));
+            planet.lineCurveList = JsonHelper.FromJson<LineCurve>(fixJson(jsonString));
+            planets.Add(planet);
+            print(planet.BPRP);
         }
 
         int max = 0, min = (int)1e9;
@@ -49,6 +64,14 @@ public class PlanetInfoManager : MonoBehaviour
         slider.onValueChanged.AddListener((float val) => SliderCallback(val));
 
         SliderCallback(min);
+    }
+
+    private Color GenColor(Planet planet)
+    {
+        float T = (float)((1 / (planet.BPRP * 0.92 + 1.7) + 1 / (planet.BPRP * 0.92 + 0.62)) * 4600);
+        Color color = Mathf.CorrelatedColorTemperatureToRGB(T);
+        print(color);
+        return color;
     }
 
     int prev = -1;
@@ -73,6 +96,8 @@ public class PlanetInfoManager : MonoBehaviour
             {
                 GameObject planet = Instantiate(template, posArray5[filterPlanets.IndexOf(planetData)], Quaternion.identity);
                 planet.name = planetData.name;
+                Material material = planet.transform.GetChild(1).gameObject.GetComponent<Renderer>().material;
+                material.color = GenColor(planetData);
 
                 Text text = Instantiate(textTemplate, planet.transform.position + new Vector3(0, 50, 0), Quaternion.identity, canvas.transform);
                 text.text = planet.name;
