@@ -14,7 +14,7 @@ public class PlanetInfoManager : MonoBehaviour
     public Canvas canvas;
     public Slider slider;
 
-    private List<Planet> planets;
+    public static List<Planet> planets;
     private readonly Vector3[] posArray5 =
         {
             new Vector3(-200,-75,0),
@@ -134,7 +134,8 @@ public class PlanetInfoManager : MonoBehaviour
             Material material = planet.transform.GetChild(1).gameObject.GetComponent<Renderer>().material;
             double period = planetData.Period;
             double mag = planetData.lightCurveList[(int)(iter / period) % planetData.lightCurveList.Length].mag;
-            material.color = new Color(planetData.originColor.r, planetData.originColor.g, planetData.originColor.b, planetData.originColor.a * (float)Math.Pow((mag - magMIN) / (magMAX- magMIN) + 0.1, 2));
+            material.color = new Color(planetData.originColor.r, planetData.originColor.g, planetData.originColor.b, (float)(planetData.originColor.a * (mag - magMIN) / (magMAX- magMIN)));
+            print(material.color);
             iter++;
         }
     }
