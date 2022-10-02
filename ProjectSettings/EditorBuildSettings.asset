@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene.unity
     guid: 06c4a65a4136e4435ae55cf2b6833c06
   - enabled: 1
-    path: Assets/Scenes/IntroScene.unity
-    guid: daf9b61e997f0467ab9f7aa0017044ad
-  - enabled: 1
     path: Assets/Scenes/InfoScene.unity
     guid: 3d2f44d90120d4c77a4b73729f1f5728
+  - enabled: 1
+    path: Assets/Scenes/IntroScene.unity
+    guid: daf9b61e997f0467ab9f7aa0017044ad
   - enabled: 1
     path: Assets/Scenes/CreateStarScene.unity
     guid: 3a6125c5f98544a5a97b869c232a72a0
