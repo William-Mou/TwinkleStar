@@ -32,7 +32,7 @@ public class PlanetIntroManager : MonoBehaviour
         Application.targetFrameRate = 60;
         centerPosition = parent.transform.position;
 
-        if(planet.type == "binary star")
+        if (planet.type == "binary star")
         {
             Material material;
             planet1 = Instantiate(template, new Vector3(planet.ratioA * ratioBias, 0, 0) + centerPosition, Quaternion.identity, parent.transform);
@@ -46,13 +46,19 @@ public class PlanetIntroManager : MonoBehaviour
         }
         else
         {
-
-            planet1 = Instantiate(template, new Vector3(0, 0, 0) + centerPosition, Quaternion.identity, parent.transform); 
+            planet1 = Instantiate(template, new Vector3(0, 0, 0) + centerPosition, Quaternion.identity, parent.transform);
             Material material = planet1.transform.GetChild(1).gameObject.GetComponent<Renderer>().material;
             material.color = GenColor(planet);
             planet.originColor = material.color;
+            material.mainTexture = Resources.Load<Texture>("sun flash");
+            switch (planet.type)
+            {
+                case "flare stars":
+                    material.mainTexture = Resources.Load<Texture>("sun flash");
+                    break;
+            }
         }
-        
+
 
         scrollbar.onValueChanged.AddListener((float val) => ScrollbarCallback(val));
         pauseButton.onClick.AddListener(() => PauseButtonCallback());
@@ -76,8 +82,8 @@ public class PlanetIntroManager : MonoBehaviour
             scrollbar.value = (float)iter / 720;
             iter %= 720;
             iter++;
-            ratioA = UICreateStar.new_planet.ratioA;
-            ratioB = UICreateStar.new_planet.ratioB;
+            ratioA = UICreateStar.new_planet?.ratioA ?? ratioA;
+            ratioB = UICreateStar.new_planet?.ratioB ?? ratioB;
         }
         if (ratioA != preventRatioA || ratioB != preventRatioB)
         {
@@ -99,6 +105,7 @@ public class PlanetIntroManager : MonoBehaviour
     }
     void PauseButtonCallback()
     {
+        print("call");
         pause = !pause;
     }
 

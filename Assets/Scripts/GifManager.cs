@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,13 +11,13 @@ public class GifManager : MonoBehaviour
     char separator = Path.DirectorySeparatorChar;
     void Start()
     {
+        string name = UICreateStar.latestPlanet ?? "ASASSN-V J100211.71-192537.4"; // for test
         List<Sprite> sprites = new();
-        string[] files = {"1", "2", "3", "4", "5"};
-        foreach (string file in files)
+        foreach (int index in Enumerable.Range(1, 10))
         {
-            print(file);
-            print(Resources.Load<Sprite>(file));
-            sprites.Add(Resources.Load<Sprite>(file));
+            Sprite sprite = Resources.Load<Sprite>($"{name} ({index})");
+            if(sprite != null)
+                sprites.Add(sprite);
         }
         sprite = sprites.ToArray();
     }
@@ -29,7 +30,7 @@ public class GifManager : MonoBehaviour
         // take a modulo with size so that animation repeats
         index %= sprite.Length;
         gameObject.GetComponent<Image>().sprite = sprite[index];
-        //print(sprite[index]);
+        print(index);
     }
 
 }
