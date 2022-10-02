@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;  
@@ -75,7 +76,7 @@ public class PlanetInfoManager : MonoBehaviour
     }
 
     int prev = -1;
-    private List<GameObject> hasDrawGameObject = new();
+    private Hashtable<Planet, GameObject> hasDrawGameObject = new();
     private List<Text> hasDrawUI = new();
     private void SliderCallback(float val)
     {
