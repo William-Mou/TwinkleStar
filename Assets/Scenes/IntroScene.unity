@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731078, g: 0.13414267, b: 0.12108305, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731141, g: 0.13414308, b: 0.121083185, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1074,6 +1074,7 @@ MonoBehaviour:
   screenshotButton: {fileID: 407885512}
   intro: {fileID: 1385223005}
   type: {fileID: 646047131}
+  starName: {fileID: 814871069}
   ratioA: 1
   ratioB: 2
 --- !u!1 &646047129
@@ -1382,7 +1383,7 @@ GameObject:
   - component: {fileID: 814871070}
   - component: {fileID: 814871069}
   m_Layer: 5
-  m_Name: title
+  m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1405,7 +1406,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 225}
+  m_AnchoredPosition: {x: -21.700012, y: 344.8}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &814871069

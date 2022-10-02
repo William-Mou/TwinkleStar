@@ -13,6 +13,7 @@ public class PlanetIntroManager : MonoBehaviour
     public Button screenshotButton;
     public TMP_Text intro;
     public TMP_Text type;
+    public TMP_Text starName;
 
     private int iter;
     private bool pause;
@@ -35,7 +36,7 @@ public class PlanetIntroManager : MonoBehaviour
         Application.targetFrameRate = 60;
         centerPosition = parent.transform.position;
 
-        if (planet.type == "binary star")
+        if (planet.type == "Binary Star")
         {
             Material material;
             planet1 = Instantiate(template, new Vector3(planet.ratioA * ratioBias, 0, 0) + centerPosition, Quaternion.identity, parent.transform);
@@ -61,6 +62,7 @@ public class PlanetIntroManager : MonoBehaviour
             }
         }
 
+        starName.text = planet.name;
         intro.text = planet.intro;
         type.text = planet.type;
 
