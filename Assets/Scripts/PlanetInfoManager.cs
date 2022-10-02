@@ -134,7 +134,7 @@ public class PlanetInfoManager : MonoBehaviour
             Material material = planet.transform.GetChild(1).gameObject.GetComponent<Renderer>().material;
             double period = planetData.Period;
             double mag = planetData.lightCurveList[(int)(iter / period) % planetData.lightCurveList.Length].mag;
-            material.color = new Color(planetData.originColor.r, planetData.originColor.g, planetData.originColor.b, (float)(planetData.originColor.a * (mag - magMIN) / (magMAX- magMIN)));
+            material.color = new Color(planetData.originColor.r, planetData.originColor.g, planetData.originColor.b, 1 - (float)(planetData.originColor.a * (mag - magMIN) / (magMAX- magMIN)));
             print(material.color);
             iter++;
         }
