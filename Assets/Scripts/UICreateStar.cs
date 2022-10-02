@@ -11,36 +11,38 @@ public class UICreateStar : MonoBehaviour
 {
     // Start is called before the first frame update
     public static string latestPlanet;
+    public static Planet latestPlanetObject;
     public TMP_InputField StarNameInputField; // 0
     public TMP_Dropdown StarTypeDropdown;   // 1
     public Slider MeanVMag;  // 2
     public Slider Period;    // 3
     public Slider BP_RP;     // 4
+    public Slider Ratio;
     public int InputSelected;
 
 
-    public Planet new_planet;
+    public static Planet new_planet;
 
     void Start()
     {
         new_planet = new Planet();
-
+        // latestPlanetObject = new_planet;
     }
 
     // Update is called once per frame
     void Update()
     {
-        print("Latest !!!" + latestPlanet);
         char separator = Path.DirectorySeparatorChar;
-        // Debug.Log(usernameInputField.text);
+        new_planet.name = StarNameInputField.text;
+        new_planet.type = StarTypeDropdown.captionText.text;
+        new_planet.meanVMag = MeanVMag.value;
+        new_planet.Period = Period.value;
+        new_planet.BPRP = BP_RP.value;
+        new_planet.ratioA = (int) Ratio.value;
+        new_planet.ratioB = 9 - new_planet.ratioA;
+        latestPlanet = new_planet.name;
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            new_planet.name = StarNameInputField.text;
-            new_planet.type = StarTypeDropdown.captionText.text;
-            new_planet.meanVMag = MeanVMag.value;
-            new_planet.Period = Period.value;
-            new_planet.BPRP = BP_RP.value;
-            latestPlanet = new_planet.name;
             if (!string.IsNullOrEmpty(new_planet.name) && !string.IsNullOrEmpty(new_planet.type))
             {
                 string planetJson = JsonUtility.ToJson(new_planet);
