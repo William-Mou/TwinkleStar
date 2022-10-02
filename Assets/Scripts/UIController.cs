@@ -6,19 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public TMP_InputField usernameInputField; // 0
-    public TMP_InputField genderInputField;   // 1
-    public int InputSelected;
-    public static string username;
-    public static string gender;
 
-
-    public void SwitchToCreateCharacterScene() => SceneManager.LoadScene(0, LoadSceneMode.Single);
-    public void SwitchToStartScene() => SceneManager.LoadScene(1, LoadSceneMode.Single);
-    public void SwitchToIntroScene() => SceneManager.LoadScene(2, LoadSceneMode.Single);
-    public void SwitchToInfoScene() => SceneManager.LoadScene(3, LoadSceneMode.Single);
-    public void SwitchToCreateStarScene() => SceneManager.LoadScene(4, LoadSceneMode.Single);
+    public static void SwitchToCreateCharacterScene() => SceneManager.LoadScene(0, LoadSceneMode.Single);
+    public static void SwitchToStartScene() => SceneManager.LoadScene(1, LoadSceneMode.Single);
+    public static void SwitchToInfoScene() => SceneManager.LoadScene(2, LoadSceneMode.Single);
+    public static void SwitchToIntroScene() => SceneManager.LoadScene(3, LoadSceneMode.Single);
+    public static void SwitchToCreateStarScene() => SceneManager.LoadScene(4, LoadSceneMode.Single);
 
     void Start()
     {
@@ -28,40 +21,13 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Debug.Log(usernameInputField.text);
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Enter");
-            username = usernameInputField.text;
-            gender = genderInputField.text;
-            if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(gender))
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("IntroScene"))
             {
-                Debug.Log("username:" + username + ", gender:" + gender);
+                SwitchToInfoScene();
             }
-            SceneManager.LoadScene(1, LoadSceneMode.Single);
+            SwitchToStartScene();
         }
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            Debug.Log("Tab");
-            InputSelected++;
-            InputSelected %= 2;
-            SelectInputField();
-        }
-        void SelectInputField()
-        {
-            switch (InputSelected)
-            {
-                case 0:
-                    usernameInputField.Select();
-                    break;
-                case 1:
-                    genderInputField.Select();
-                    break;
-            }
-        }
-        
     }
-
-    public void UsernameSelected() => InputSelected = 0;
-    public void GenderSelected() => InputSelected = 1;
 }

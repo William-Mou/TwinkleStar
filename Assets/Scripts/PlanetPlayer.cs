@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlanetPlayer : MonoBehaviour
 {
@@ -18,7 +19,11 @@ public class PlanetPlayer : MonoBehaviour
         {
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                print(hit.collider.transform.parent.gameObject.name);
+                
+                UICreateStar.latestPlanet = hit.collider.transform.parent.gameObject.name;
+                // print(hit.collider.transform.parent.gameObject.name);
+                print(UICreateStar.latestPlanet);
+                UIController.SwitchToIntroScene();
             }
         }
             

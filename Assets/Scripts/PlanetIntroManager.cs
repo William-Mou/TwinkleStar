@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using SFB;
 using UnityEditor;
 using UnityEngine;
@@ -24,15 +25,22 @@ public class PlanetIntroManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        string name = UICreateStar.latestPlanet;
+        List<Planet> planets = PlanetInfoManager.planets;
+        Planet planet = planets.Find(x => x.name == name);
         pause = false;
         iter = 1;
         Application.targetFrameRate = 60;
         centerPosition = parent.transform.position;
 
+        planet1 = Instantiate(template, new Vector3(0, 0, 0) + centerPosition, Quaternion.identity, parent.transform);
+        /*
         planet1 = Instantiate(template, new Vector3(ratioA * ratioBias, 0, 0) + centerPosition, Quaternion.identity, parent.transform);
         planet1.name = "Alzir";
         planet2 = Instantiate(template, new Vector3(-1 * ratioB * ratioBias, 0, 0) + centerPosition, Quaternion.identity, parent.transform);
         planet2.name = "Antares";
+        */
+
         scrollbar.onValueChanged.AddListener((float val) => ScrollbarCallback(val));
         pauseButton.onClick.AddListener(() => PauseButtonCallback());
         screenshotButton.onClick.AddListener(() => ScreenshotButtonCallback());
@@ -73,7 +81,7 @@ public class PlanetIntroManager : MonoBehaviour
 
     void ScreenshotButtonCallback()
     {
-        string fileName = StandaloneFileBrowser.SaveFilePanel("Save File", "", "", "");
+        string fileName = StandaloneFileBrowser.SaveFilePanel("Save File", "", "screenshot", "png");
 
         if (fileName.Length != 0)
         {

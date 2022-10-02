@@ -169,9 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687fbf6bccb854165a6cdef8bb0d4653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usernameInputField: {fileID: 0}
-  genderInputField: {fileID: 0}
-  InputSelected: 0
 --- !u!43 &248634097
 Mesh:
   m_ObjectHideFlags: 0
@@ -365,9 +362,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687fbf6bccb854165a6cdef8bb0d4653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usernameInputField: {fileID: 0}
-  genderInputField: {fileID: 0}
-  InputSelected: 0
 --- !u!4 &274235050
 Transform:
   m_ObjectHideFlags: 0
@@ -580,7 +574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AspectMode: 0
-  m_AspectRatio: 6.8970804
+  m_AspectRatio: 4.2789435
 --- !u!114 &730427084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1603,7 +1597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AspectMode: 0
-  m_AspectRatio: 7.7497234
+  m_AspectRatio: 4.5654416
 --- !u!114 &1604457109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1650,7 +1644,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 274235049}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
-        m_MethodName: SwitchToIntroScene
+        m_MethodName: SwitchToInfoScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

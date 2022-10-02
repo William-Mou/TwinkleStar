@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731119, g: 0.13414289, b: 0.12108317, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731078, g: 0.13414267, b: 0.12108305, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -735,6 +735,7 @@ GameObject:
   m_Component:
   - component: {fileID: 381678752}
   - component: {fileID: 381678751}
+  - component: {fileID: 381678753}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -756,7 +757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StarNameInputField: {fileID: 881237254}
   StarTypeDropdown: {fileID: 1122503988}
-  MeanVMag: {fileID: 0}
+  MeanVMag: {fileID: 7961182051040773885}
   Period: {fileID: 0}
   BP_RP: {fileID: 0}
   InputSelected: 0
@@ -789,6 +790,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &381678753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381678750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 687fbf6bccb854165a6cdef8bb0d4653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &384726738
 GameObject:
   m_ObjectHideFlags: 0
@@ -4427,3 +4440,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac9ab31822882424aa83e11b39778dd5, type: 3}
+--- !u!114 &7961182051040773885 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7961182050437379220, guid: ac9ab31822882424aa83e11b39778dd5, type: 3}
+  m_PrefabInstance: {fileID: 7961182051040773884}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
