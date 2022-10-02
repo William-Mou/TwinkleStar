@@ -36,7 +36,7 @@ public class PlanetInfoManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Application.targetFrameRate = 1;
+        Application.targetFrameRate = 5;
         iter = 0;
         Camera cam = GetComponent<Camera>();
         IEnumerable<string> files = Directory

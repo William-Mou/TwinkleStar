@@ -59,14 +59,24 @@ public class PlanetIntroManager : MonoBehaviour
             {
                 case "flare stars":
                     material.mainTexture = Resources.Load<Texture>("sun flash");
+                    intro.text = "Flare star, any star that varies in brightness, sometimes by more than one magnitude, within a few minutes. The cause is thought to be the eruption of flares much larger than, but otherwise similar to, those observed on the Sun.";
+                    break;
+                case "Eclipsing Binary Stars":
+                case "Binary Star":
+                    intro.text = "Eclipsing Binary Stars are stars that pass in front of each other, causing fluctuation and obscuring of the light seen on Earth. Eclipsing binary stars may have their own planets, which eclipse their light similar to a lunar eclipse on Earth. One of the best-known eclipsing binary stars is Algol.";
+                    break;
+                case "Cepheids":
+                    intro.text = "Cepheids, also called Cepheid Variables, are stars which brigthen and dim periodically. This behavior allows them to be used as cosmic yardsticks out to distances of a few tens of millions of light-years.";
+                    break;
+                case "Pulsating Variable Stars":
+                    intro.text = "Pulsating variable stars are intrinsic variables as their variation in brightness is due to a physical change within the star. In the case of pulsating variables this is due to the periodic expansion and contraction of the surface layers of the stars.";
                     break;
             }
         }
 
         starName.text = planet.name;
-        intro.text = planet.intro;
         type.text = planet.type;
-        user.text = $"{UICreateChar.gender} {UICreateChar.username}";
+        user.text = $"Dear {UICreateChar.gender} {UICreateChar.username}, you have experienced a wonderful journey of universe exploraton. Don't forget the passion and keep on keeping on!";
 
         scrollbar.onValueChanged.AddListener((float val) => ScrollbarCallback(val));
         pauseButton.onClick.AddListener(() => PauseButtonCallback());
