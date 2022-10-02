@@ -37,7 +37,7 @@ public class UICreateStar : MonoBehaviour
             new_planet.name = StarNameInputField.text;
             new_planet.type = StarTypeDropdown.captionText.text;
             new_planet.meanVMag = MeanVMag.value;
-            new_planet.period = Period.value;
+            new_planet.Period = Period.value;
             new_planet.BPRP = BP_RP.value;
 
             if (!string.IsNullOrEmpty(new_planet.name) && !string.IsNullOrEmpty(new_planet.type))

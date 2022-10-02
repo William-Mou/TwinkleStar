@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class PlanetInfoManager : MonoBehaviour
 {
@@ -29,9 +30,14 @@ public class PlanetInfoManager : MonoBehaviour
         return value;
     }
 
+    double magMAX = 0, magMIN = 1000000000;
+    int magMAXENGTH = 0;
+    int iter;
     // Start is called before the first frame update
     void Start()
     {
+        Application.targetFrameRate = 5;
+        iter = 0;
         Camera cam = GetComponent<Camera>();
         IEnumerable<string> files = Directory
             .EnumerateFiles(Application.persistentDataPath + $"{separator}star{separator}", "*.json", SearchOption.TopDirectoryOnly);
@@ -57,6 +63,13 @@ public class PlanetInfoManager : MonoBehaviour
         {
             if ((int)Mathf.Log(planetData.distance, 2) > max) max = (int)Mathf.Log(planetData.distance, 2);
             if ((int)Mathf.Log(planetData.distance, 2) < min) min = (int)Mathf.Log(planetData.distance, 2);
+
+            foreach (LightCurve lightcurve in planetData.lightCurveList)
+            {
+                if (lightcurve.mag > magMAX) magMAX = lightcurve.mag;
+                if (lightcurve.mag < magMIN) magMIN = lightcurve.mag;
+            }
+            if (planetData.lightCurveList.Length > magMAXENGTH) magMAXENGTH = planetData.lightCurveList.Length;
         }
 
         slider.maxValue = max;
@@ -76,16 +89,16 @@ public class PlanetInfoManager : MonoBehaviour
     }
 
     int prev = -1;
-    private List<GameObject> hasDrawGameObject = new();
+    private Hashtable hasDrawGameObject = new();
     private List<Text> hasDrawUI = new();
     private void SliderCallback(float val)
     {
         List<Planet> filterPlanets = planets.FindAll(c => (int)Mathf.Log(c.distance, 2) == (int)val);
         if (val != prev)
         {
-            foreach (GameObject obj in hasDrawGameObject)
+            foreach(DictionaryEntry obj in hasDrawGameObject)
             {
-                Destroy(obj);
+                Destroy((GameObject)obj.Value);
             }
             foreach (Text text in hasDrawUI)
             {
@@ -99,11 +112,12 @@ public class PlanetInfoManager : MonoBehaviour
                 planet.name = planetData.name;
                 Material material = planet.transform.GetChild(1).gameObject.GetComponent<Renderer>().material;
                 material.color = GenColor(planetData);
+                planetData.originColor = material.color;
 
                 Text text = Instantiate(textTemplate, planet.transform.position + new Vector3(0, 50, 0), Quaternion.identity, canvas.transform);
                 text.text = planet.name;
 
-                hasDrawGameObject.Add(planet);
+                hasDrawGameObject.Add(planetData, planet);
                 hasDrawUI.Add(text);
             }
         }
@@ -112,6 +126,16 @@ public class PlanetInfoManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        foreach (DictionaryEntry obj in hasDrawGameObject)
+        {
+            Planet planetData = (Planet)obj.Key;
+            GameObject planet = (GameObject)obj.Value;
 
+            Material material = planet.transform.GetChild(1).gameObject.GetComponent<Renderer>().material;
+            double period = planetData.Period;
+            double mag = planetData.lightCurveList[(int)(iter / period) % planetData.lightCurveList.Length].mag;
+            material.color = new Color(planetData.originColor.r, planetData.originColor.g, planetData.originColor.b, planetData.originColor.a * (float)Math.Pow((mag - magMIN) / (magMAX- magMIN) + 0.1, 2));
+            iter++;
+        }
     }
 }
