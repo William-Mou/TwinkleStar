@@ -39,7 +39,8 @@ public class UICreateStar : MonoBehaviour
             if (!string.IsNullOrEmpty(new_planet.name) && !string.IsNullOrEmpty(new_planet.type))
             {
                 string planetJson = JsonUtility.ToJson(new_planet);
-                System.IO.File.WriteAllText(Application.persistentDataPath + new_planet.name + ".json", planetJson);
+                System.IO.File.WriteAllText(Application.persistentDataPath + "/star" + new_planet.name + ".json", planetJson);
+                print(Application.persistentDataPath + "star" + new_planet.name + ".json");
                 SwitchToIntroScene();
             }
 

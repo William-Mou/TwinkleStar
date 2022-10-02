@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using Assets.Scripts;
+using System.Linq;  
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,19 +33,20 @@ public class PlanetInfoManager : MonoBehaviour
     {
         Camera cam = GetComponent<Camera>();
         IEnumerable<string> files = Directory
-            .EnumerateFiles("Assets\\Data\\star", "*.json", SearchOption.TopDirectoryOnly);
+            .EnumerateFiles(Application.persistentDataPath + "\\star\\" , "*.json", SearchOption.TopDirectoryOnly);
 
         planets = new();
         foreach (string file in files)
         {
+
             string jsonString;
             jsonString = File.ReadAllText(file);
             print(jsonString);
             Planet planet = JsonUtility.FromJson<Planet>(jsonString);
-            jsonString = File.ReadAllText("Assets\\Data\\lineCurve\\" + planet.name+".json");
-            print("Assets\\Data\\lineCurve\\" + planet.name + ".json");
+            jsonString = File.ReadAllText(Application.persistentDataPath + "\\star\\lightCurve\\" + planet.name+".json");
+            print(Application.persistentDataPath + "\\star\\lightCurve\\" + planet.name+".json");
             print(fixJson(jsonString));
-            planet.lineCurveList = JsonHelper.FromJson<LineCurve>(fixJson(jsonString));
+            planet.lightCurveList = JsonHelper.FromJson<LightCurve>(fixJson(jsonString));
             planets.Add(planet);
             print(planet.BPRP);
         }
