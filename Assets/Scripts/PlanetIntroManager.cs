@@ -28,7 +28,6 @@ public class PlanetIntroManager : MonoBehaviour
         iter = 1;
         Application.targetFrameRate = 60;
         centerPosition = parent.transform.position;
-        Debug.Log(centerPosition);
 
         planet1 = Instantiate(template, new Vector3(ratioA * ratioBias, 0, 0) + centerPosition, Quaternion.identity, parent.transform);
         planet1.name = "Alzir";
@@ -44,8 +43,6 @@ public class PlanetIntroManager : MonoBehaviour
     {
         if (!pause)
         {
-            Debug.Log(ratioA);
-
             parent.transform.eulerAngles = new Vector3(0, 1 * iter, 0);
             scrollbar.value = (float)iter / 720;
             iter %= 720;
