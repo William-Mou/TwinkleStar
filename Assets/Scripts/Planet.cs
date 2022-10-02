@@ -16,7 +16,10 @@ public class Planet
     public LightCurve[] lightCurveList;
     public Color originColor;
 
-    public Planet()
+    public Planet() { }
+
+    public Planet(string name)
     {
+        this.name = name;
     }
 }

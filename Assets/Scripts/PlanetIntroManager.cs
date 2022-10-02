@@ -27,7 +27,7 @@ public class PlanetIntroManager : MonoBehaviour
     {
         string name = UICreateStar.latestPlanet;
         List<Planet> planets = PlanetInfoManager.planets;
-        Planet planet = planets.Find(x => x.name == name);
+        Planet planet = planets?.Find(x => x.name == name) ?? new Planet("ASASSN-V J100211.71-192537.4");
         pause = false;
         iter = 1;
         Application.targetFrameRate = 60;
