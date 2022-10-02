@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using SFB;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,23 +26,45 @@ public class PlanetIntroManager : MonoBehaviour
     {
         string name = UICreateStar.latestPlanet;
         List<Planet> planets = PlanetInfoManager.planets;
-        Planet planet = planets?.Find(x => x.name == name) ?? new Planet("ASASSN-V J100211.71-192537.4");
+        Planet planet = planets?.Find(x => x.name == name) ?? new Planet("ASASSN-V J100211.71-192537.4"); // for test
         pause = false;
         iter = 1;
         Application.targetFrameRate = 60;
         centerPosition = parent.transform.position;
 
-        planet1 = Instantiate(template, new Vector3(0, 0, 0) + centerPosition, Quaternion.identity, parent.transform);
-        /*
-        planet1 = Instantiate(template, new Vector3(ratioA * ratioBias, 0, 0) + centerPosition, Quaternion.identity, parent.transform);
-        planet1.name = "Alzir";
-        planet2 = Instantiate(template, new Vector3(-1 * ratioB * ratioBias, 0, 0) + centerPosition, Quaternion.identity, parent.transform);
-        planet2.name = "Antares";
-        */
+        if(planet.type == "binary star")
+        {
+            Material material;
+            planet1 = Instantiate(template, new Vector3(planet.ratioA * ratioBias, 0, 0) + centerPosition, Quaternion.identity, parent.transform);
+            material = planet1.transform.GetChild(1).gameObject.GetComponent<Renderer>().material;
+            material.color = GenColor(planet);
+            planet.originColor = material.color;
+            planet2 = Instantiate(template, new Vector3(-1 * planet.ratioB * ratioBias, 0, 0) + centerPosition, Quaternion.identity, parent.transform);
+            material = planet2.transform.GetChild(1).gameObject.GetComponent<Renderer>().material;
+            material.color = GenColor(planet);
+            planet.originColor = material.color;
+        }
+        else
+        {
+
+            planet1 = Instantiate(template, new Vector3(0, 0, 0) + centerPosition, Quaternion.identity, parent.transform); 
+            Material material = planet1.transform.GetChild(1).gameObject.GetComponent<Renderer>().material;
+            material.color = GenColor(planet);
+            planet.originColor = material.color;
+        }
+        
 
         scrollbar.onValueChanged.AddListener((float val) => ScrollbarCallback(val));
         pauseButton.onClick.AddListener(() => PauseButtonCallback());
         screenshotButton.onClick.AddListener(() => ScreenshotButtonCallback());
+    }
+
+    private Color GenColor(Planet planet)
+    {
+        float T = (float)((1 / (planet.BPRP * 0.92 + 1.7) + 1 / (planet.BPRP * 0.92 + 0.62)) * 4600);
+        Color color = Mathf.CorrelatedColorTemperatureToRGB(T);
+        print(color);
+        return color;
     }
 
     // Update is called once per frame
