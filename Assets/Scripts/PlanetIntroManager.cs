@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using SFB;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,8 @@ public class PlanetIntroManager : MonoBehaviour
     public Scrollbar scrollbar;
     public Button pauseButton;
     public Button screenshotButton;
+    public TMP_Text intro;
+    public TMP_Text type;
 
     private int iter;
     private bool pause;
@@ -58,6 +61,8 @@ public class PlanetIntroManager : MonoBehaviour
             }
         }
 
+        intro.text = planet.intro;
+        type.text = planet.type;
 
         scrollbar.onValueChanged.AddListener((float val) => ScrollbarCallback(val));
         pauseButton.onClick.AddListener(() => PauseButtonCallback());
