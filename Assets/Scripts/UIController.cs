@@ -23,11 +23,15 @@ public class UIController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("IntroScene"))
+            if (SceneManager.GetActiveScene().name == "IntroScene")
             {
+                print("inif");
                 SwitchToInfoScene();
             }
-            SwitchToStartScene();
+            else
+            {
+                SwitchToStartScene();
+            }
         }
     }
 }

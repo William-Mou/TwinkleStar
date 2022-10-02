@@ -30,7 +30,7 @@ public class GifManager : MonoBehaviour
         // take a modulo with size so that animation repeats
         index %= sprite.Length;
         gameObject.GetComponent<Image>().sprite = sprite[index];
-        print(index);
+        // print(index);
     }
 
 }
