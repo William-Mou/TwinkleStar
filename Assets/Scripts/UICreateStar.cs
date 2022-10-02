@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class UICreateStar : MonoBehaviour
 {
     // Start is called before the first frame update
-
+    public static string latestPlanet;
     public TMP_InputField StarNameInputField; // 0
     public TMP_Dropdown StarTypeDropdown;   // 1
     public Slider MeanVMag;  // 2
@@ -20,16 +20,17 @@ public class UICreateStar : MonoBehaviour
 
 
     public Planet new_planet;
-    public static Planet latestPlanet;
+
     void Start()
     {
         new_planet = new Planet();
-        latestPlanet = new_planet;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        print("Latest !!!" + latestPlanet);
         char separator = Path.DirectorySeparatorChar;
         // Debug.Log(usernameInputField.text);
         if (Input.GetKeyDown(KeyCode.Return))
@@ -39,7 +40,7 @@ public class UICreateStar : MonoBehaviour
             new_planet.meanVMag = MeanVMag.value;
             new_planet.Period = Period.value;
             new_planet.BPRP = BP_RP.value;
-
+            latestPlanet = new_planet.name;
             if (!string.IsNullOrEmpty(new_planet.name) && !string.IsNullOrEmpty(new_planet.type))
             {
                 string planetJson = JsonUtility.ToJson(new_planet);
