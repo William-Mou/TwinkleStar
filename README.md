@@ -239,4 +239,5 @@ Now submit the pull request.
 Soon I'll be merging all your changes into the master branch of this project. You will get a notification email once the changes have been merged.
 
 # Reference
-[NASA Hackathon 2022](https://2022.spaceappschallenge.org/challenges/2022-challenges/twinkle-twinkle-little-star/details)
+[NASA Hackathon 2022](https://2022.spaceappschallenge.org/challenges/2022-challenges/twinkle-twinkle-little-star/teams/seal-and-friends/project)
+[StarGazer2022_DEMO_Seal&Friends](https://docs.google.com/presentation/d/1_1voQfdvPb_kO1aG2QOaCXAeVEfhqzBm/edit?usp=sharing&ouid=103478601119963390958&rtpof=true&sd=true)
