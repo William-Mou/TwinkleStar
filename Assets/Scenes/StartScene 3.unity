@@ -923,11 +923,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hello there! Welcome to <StarGazer 2022>. We are inviting you to come
-    on a journey with us to explore the \u200B\u200BTwinkle, Twinkle, Little Stars,
-    and be curious about why the stars twinkle.\n\nClick on the observer to raise
-    your head and look up to the sky! It is simple, just like you raise your head
-    in person.\n\nThe stars are amazing, isn\u2019t it!\n\n"
+  m_text: 'Later on, scientists defined absolute magnitude, which is equal to the
+    apparent magnitude that the object would have if it were viewed from a distance
+    of 32.6 light years. By doing so, we can compare luminosities of each star.
+
+
+    As
+    your journey moves on, you will discover that stars flicker in different ways.
+    Twinkle, Twinkle, Little Stars! How amazing this is.
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
