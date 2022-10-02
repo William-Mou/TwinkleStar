@@ -1546,7 +1546,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 594540843}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0eb13ff10d865448800cee4efe3a1c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 48ea580f89ee84360af8e04998587af0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 594540843}
@@ -1554,6 +1554,8 @@ MonoBehaviour:
   scrollbar: {fileID: 481272528}
   pauseButton: {fileID: 319845814}
   screenshotButton: {fileID: 407885512}
+  intro: {fileID: 0}
+  type: {fileID: 0}
   ratioA: 1
   ratioB: 2
 --- !u!1 &594686749
