@@ -134,11 +134,11 @@ The twinkling stars that we see are mostly because of atmospheric disturbance. S
 # Progress
 
 ## TODO
-- [ ] Create character page
-- [ ] Start page
-- [ ] star intro page
-- [ ] star create page
-- [ ] star info page
+- [x] Create character page
+- [x] Start page
+- [x] star intro page
+- [x] star create page
+- [x] star info page
 
 ## Completed 
 - [x] Init
