@@ -36,7 +36,7 @@ public class PlanetInfoManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Application.targetFrameRate = 5;
+        Application.targetFrameRate = 1;
         iter = 0;
         Camera cam = GetComponent<Camera>();
         IEnumerable<string> files = Directory
@@ -50,7 +50,13 @@ public class PlanetInfoManager : MonoBehaviour
             jsonString = File.ReadAllText(file);
             print(jsonString);
             Planet planet = JsonUtility.FromJson<Planet>(jsonString);
-            jsonString = File.ReadAllText(Application.persistentDataPath + $"{separator}lightCurve{separator}" + planet.name + ".json");
+            try
+            {
+                jsonString = File.ReadAllText(Application.persistentDataPath + $"{separator}lightCurve{separator}" + planet.name + ".json"); 
+            } catch
+            {
+                jsonString = File.ReadAllText(Application.persistentDataPath + $"{separator}lightCurve{separator}" + "ASASSN-V J061347.16-235423.1" + ".json");
+            }
             print(Application.persistentDataPath + $"{separator}lightCurve{separator}" + planet.name + ".json");
             print(fixJson(jsonString));
             planet.lightCurveList = JsonHelper.FromJson<LightCurve>(fixJson(jsonString));
@@ -64,12 +70,15 @@ public class PlanetInfoManager : MonoBehaviour
             if ((int)Mathf.Log(planetData.distance, 2) > max) max = (int)Mathf.Log(planetData.distance, 2);
             if ((int)Mathf.Log(planetData.distance, 2) < min) min = (int)Mathf.Log(planetData.distance, 2);
 
-            foreach (LightCurve lightcurve in planetData.lightCurveList)
+            if(planetData.lightCurveList.Length > 0)
             {
-                if (lightcurve.mag > magMAX) magMAX = lightcurve.mag;
-                if (lightcurve.mag < magMIN) magMIN = lightcurve.mag;
+                foreach (LightCurve lightcurve in planetData.lightCurveList)
+                {
+                    if (lightcurve.mag > magMAX) magMAX = lightcurve.mag;
+                    if (lightcurve.mag < magMIN) magMIN = lightcurve.mag;
+                }
+                if (planetData.lightCurveList.Length > magMAXENGTH) magMAXENGTH = planetData.lightCurveList.Length;
             }
-            if (planetData.lightCurveList.Length > magMAXENGTH) magMAXENGTH = planetData.lightCurveList.Length;
         }
 
         slider.maxValue = max;
@@ -131,12 +140,16 @@ public class PlanetInfoManager : MonoBehaviour
             Planet planetData = (Planet)obj.Key;
             GameObject planet = (GameObject)obj.Value;
 
-            Material material = planet.transform.GetChild(1).gameObject.GetComponent<Renderer>().material;
-            double period = planetData.Period;
-            double mag = planetData.lightCurveList[(int)(iter / period) % planetData.lightCurveList.Length].mag;
-            material.color = new Color(planetData.originColor.r, planetData.originColor.g, planetData.originColor.b, 1 - (float)(planetData.originColor.a * (mag - magMIN) / (magMAX- magMIN)));
-            print(material.color);
-            iter++;
+            if (planetData.lightCurveList.Length > 0)
+            {
+
+                Material material = planet.transform.GetChild(1).gameObject.GetComponent<Renderer>().material;
+                double period = planetData.Period;
+                double mag = planetData.lightCurveList[(int)(iter / period) % planetData.lightCurveList.Length].mag;
+                material.color = new Color(planetData.originColor.r, planetData.originColor.g, planetData.originColor.b, 1 - (float)(planetData.originColor.a * (mag - magMIN) / (magMAX - magMIN)));
+                print(material.color);
+            }
         }
+        iter++;
     }
 }

@@ -14,6 +14,7 @@ public class PlanetIntroManager : MonoBehaviour
     public TMP_Text intro;
     public TMP_Text type;
     public TMP_Text starName;
+    public TMP_Text user;
 
     private int iter;
     private bool pause;
@@ -65,6 +66,7 @@ public class PlanetIntroManager : MonoBehaviour
         starName.text = planet.name;
         intro.text = planet.intro;
         type.text = planet.type;
+        user.text = $"{UICreateChar.gender} {UICreateChar.username}";
 
         scrollbar.onValueChanged.AddListener((float val) => ScrollbarCallback(val));
         pauseButton.onClick.AddListener(() => PauseButtonCallback());
