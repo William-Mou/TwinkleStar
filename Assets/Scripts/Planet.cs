@@ -17,8 +17,13 @@ public class Planet
     public Color originColor;
     public int ratioA;
     public int ratioB;
-    public Planet()
+    public Planet(string name)
     {
         this.name = name;
+    }
+
+    public Planet()
+    {
+
     }
 }
