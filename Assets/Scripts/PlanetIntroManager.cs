@@ -50,7 +50,6 @@ public class PlanetIntroManager : MonoBehaviour
             Material material = planet1.transform.GetChild(1).gameObject.GetComponent<Renderer>().material;
             material.color = GenColor(planet);
             planet.originColor = material.color;
-            material.mainTexture = Resources.Load<Texture>("sun flash");
             switch (planet.type)
             {
                 case "flare stars":
