@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +10,7 @@ using UnityEngine.UI;
 public class UICreateStar : MonoBehaviour
 {
     // Start is called before the first frame update
+
     public TMP_InputField StarNameInputField; // 0
     public TMP_Dropdown StarTypeDropdown;   // 1
     public Slider MeanVMag;  // 2
@@ -27,6 +30,7 @@ public class UICreateStar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        char separator = Path.DirectorySeparatorChar;
         // Debug.Log(usernameInputField.text);
         if (Input.GetKeyDown(KeyCode.Return))
         {
@@ -39,7 +43,7 @@ public class UICreateStar : MonoBehaviour
             if (!string.IsNullOrEmpty(new_planet.name) && !string.IsNullOrEmpty(new_planet.type))
             {
                 string planetJson = JsonUtility.ToJson(new_planet);
-                System.IO.File.WriteAllText(Application.persistentDataPath + "/star" + new_planet.name + ".json", planetJson);
+                System.IO.File.WriteAllText(Application.persistentDataPath + $"{separator}star{separator}" + new_planet.name + ".json", planetJson);
                 print(Application.persistentDataPath + "star" + new_planet.name + ".json");
                 SwitchToIntroScene();
             }

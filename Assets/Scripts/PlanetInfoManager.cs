@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;  
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlanetInfoManager : MonoBehaviour
 {
+    char separator = Path.DirectorySeparatorChar;
     public GameObject template;
     public Text textTemplate;
     public Canvas canvas;
@@ -33,7 +34,7 @@ public class PlanetInfoManager : MonoBehaviour
     {
         Camera cam = GetComponent<Camera>();
         IEnumerable<string> files = Directory
-            .EnumerateFiles(Application.persistentDataPath + "\\star\\" , "*.json", SearchOption.TopDirectoryOnly);
+            .EnumerateFiles(Application.persistentDataPath + $"{separator}star{separator}", "*.json", SearchOption.TopDirectoryOnly);
 
         planets = new();
         foreach (string file in files)
@@ -43,8 +44,8 @@ public class PlanetInfoManager : MonoBehaviour
             jsonString = File.ReadAllText(file);
             print(jsonString);
             Planet planet = JsonUtility.FromJson<Planet>(jsonString);
-            jsonString = File.ReadAllText(Application.persistentDataPath + "\\star\\lightCurve\\" + planet.name+".json");
-            print(Application.persistentDataPath + "\\star\\lightCurve\\" + planet.name+".json");
+            jsonString = File.ReadAllText(Application.persistentDataPath + $"{separator}lightCurve{separator}" + planet.name + ".json");
+            print(Application.persistentDataPath + $"{separator}lightCurve{separator}" + planet.name + ".json");
             print(fixJson(jsonString));
             planet.lightCurveList = JsonHelper.FromJson<LightCurve>(fixJson(jsonString));
             planets.Add(planet);
@@ -80,9 +81,9 @@ public class PlanetInfoManager : MonoBehaviour
     private void SliderCallback(float val)
     {
         List<Planet> filterPlanets = planets.FindAll(c => (int)Mathf.Log(c.distance, 2) == (int)val);
-        if(val != prev)
+        if (val != prev)
         {
-            foreach(GameObject obj in hasDrawGameObject)
+            foreach (GameObject obj in hasDrawGameObject)
             {
                 Destroy(obj);
             }
