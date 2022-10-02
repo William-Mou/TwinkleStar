@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8943448}
   - component: {fileID: 8943449}
+  - component: {fileID: 8943450}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -152,7 +153,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1671906383}
   - {fileID: 856639264}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -169,6 +169,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687fbf6bccb854165a6cdef8bb0d4653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8943450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8943447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5cd795dd3eb1460d81cbb5b82b2efb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usernameInputField: {fileID: 1280715762}
+  genderInputField: {fileID: 1409811136}
+  InputSelected: 0
 --- !u!1 &86555630
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,7 +1112,7 @@ RectTransform:
   - {fileID: 1409811135}
   - {fileID: 1751825619}
   m_Father: {fileID: 8943448}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1258,7 +1273,7 @@ MonoBehaviour:
   m_OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1671906382}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UICreateChar, Assembly-CSharp
         m_MethodName: UsernameSelected
         m_Mode: 1
@@ -1581,7 +1596,7 @@ MonoBehaviour:
   m_OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1671906382}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UICreateChar, Assembly-CSharp
         m_MethodName: GenderSelected
         m_Mode: 1
