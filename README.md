@@ -1,7 +1,9 @@
 # TwinkleStar
+![binary](https://user-images.githubusercontent.com/26687231/193521202-b7f8a25b-3f34-4679-b145-711d8869cf30.gif)
 
 # The Challenge
 The stars above are constantly changing, but usually these changes are too slow or too faint for the eye to see. Your challenge is to develop a learning tool to teach people about stellar variability and help them understand how dynamic the night sky really is!
+
 
 # Opening
 Hello there! Welcome to 《StarGazer 2022》. We are inviting you to come on a journey with us to explore the ​​Twinkle, Twinkle, Little Stars, and be curious about why the stars twinkle.
@@ -48,6 +50,8 @@ Congratulations on your first attempt to observe the sky. Let’s now reveal the
 恭喜你已經第一次和我們一起看向天空，那麼，接下來，我們繼續一起來了解星空閃爍的秘密吧！
 
 
+<img width="906" alt="截圖 2022-10-02 下午5 43 23" src="https://user-images.githubusercontent.com/26687231/193521468-eebd5ba3-e330-402a-ace8-bed8776a62bd.png">
+
 # Twinkle Star
 
 The twinkling stars that we see are mostly because of atmospheric disturbance. Since most stars are far away from Earth, it can be considered as a point source, and will easily be scattered. In contrast, observing stars that are closer to us such as our sun will not be scattered.
@@ -57,6 +61,8 @@ The twinkling stars that we see are mostly because of atmospheric disturbance. S
 我們在地球表面上最容易能夠觀測到的星星閃爍，成因來自於地球的大氣擾動。
 
 因為多數星體距離地球遙遠，幾乎可視為點光源，容易受到大氣擾動而散射。（而太陽、系內行星反射的光源較多，較不容易被散射影響）。
+
+<img width="915" alt="截圖 2022-10-02 下午7 19 06" src="https://user-images.githubusercontent.com/26687231/193521354-d3b17f1a-509d-4673-b17d-c5d37b522b6f.png">
 
 # 變星介紹
 
