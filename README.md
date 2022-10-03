@@ -135,6 +135,7 @@ The twinkling stars that we see are mostly because of atmospheric disturbance. S
 此刻，你已解鎖隱藏UI截圖功能，歡迎帶著你的模擬星空去和你的朋友分享
 並鼓勵他們一起來了解一閃一閃的天空
 也希望你在未來能夠持續記得這樣的探索與感動，莫忘自己抬頭看向星空的初衷。
+<img width="565" alt="image" src="https://user-images.githubusercontent.com/26687231/193522736-c9fcb9e3-ac4e-4241-9581-53244986ea45.png">
 
 
 # Progress
